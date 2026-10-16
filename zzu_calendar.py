@@ -19,6 +19,7 @@
 
 import re
 import json
+import os
 import html
 import hashlib
 import urllib.request
@@ -153,7 +154,27 @@ def extract_events(title: str, pub_date: str, url: str, text: str):
     return events
 
 
+def _today():
+    """北京时间今天（GitHub Actions 跑在 UTC，须按国内时区判断日期）。"""
+    return datetime.now(timezone(timedelta(hours=8))).date()
+
+
+def _is_future(when: str) -> bool:
+    m = re.match(r"(\d{4})-(\d{2})-(\d{2})", when or "")
+    return bool(m) and date(int(m.group(1)), int(m.group(2)), int(m.group(3))) >= _today()
+
+
 def scrape():
+    # 载入上次结果：详情页抓取被拒/失败时，沿用该通知上次抓到的未过期节点
+    prev_by_notice = {}
+    if os.path.exists(OUT_JSON):
+        try:
+            with open(OUT_JSON, encoding="utf-8") as f:
+                for e in json.load(f).get("events", []):
+                    prev_by_notice.setdefault(e.get("notice", ""), []).append(e)
+        except Exception:
+            pass
+
     all_items = []
     for p in range(1, PAGES + 1):
         try:
@@ -167,12 +188,25 @@ def scrape():
     events = []
     for title, pub_date, href in all_items:
         full = href if href.startswith("http") else BASE + href
+        denied = False
+        txt = ""
         try:
-            txt = strip_tags(fetch(full))
+            raw = fetch(full)
+            if "没有访问" in strip_tags(raw[:4000]):
+                # content.jsp 动态页对境外 IP 返回“您没有访问当前栏目的权限”
+                denied = True
+            else:
+                txt = strip_tags(raw)
         except Exception as e:
             print(f"详情抓取失败 {title}: {e}")
-            continue
-        ev = extract_events(title, pub_date, full, txt)
+            denied = True
+        ev = [] if denied else extract_events(title, pub_date, full, txt)
+        if denied:
+            ev = [e for e in prev_by_notice.get(title, []) if _is_future(e.get("deadline"))]
+            if ev:
+                events.extend(ev)
+                print(f"  {title}  ->  {len(ev)} 个节点（沿用上次结果）")
+                continue
         if ev:
             events.extend(ev)
         print(f"  {title}  ->  {len(ev)} 个节点")
@@ -222,7 +256,7 @@ def _escape(s: str) -> str:
 def generate_ics(json_path=OUT_JSON, out_path=OUT_ICS, today=None):
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
-    today = today or date.today()
+    today = today or _today()
     now_utc = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
     lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ZZU通知截止提醒//CN//ZH",
