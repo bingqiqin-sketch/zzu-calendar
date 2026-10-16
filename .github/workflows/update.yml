@@ -1,0 +1,38 @@
+name: Update calendar
+
+on:
+  schedule:
+    # 每天 00:15 UTC = 北京时间 08:15（避开整点高峰）
+    - cron: "15 0 * * *"
+  # 允许在 GitHub 网页上手动点一次运行，方便第一次上线时立即测试
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # 允许工作流把生成的 calendar.ics 提交回仓库
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 抓取并生成日历
+        run: |
+          python3 zzu_calendar.py scrape || echo "::warning::抓取失败，沿用上次的 deadlines.json"
+          python3 zzu_calendar.py ics
+
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calendar.ics deadlines.json
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+          else
+            git commit -m "chore: 更新日历 $(date -u +%Y-%m-%d)"
+            git push
+          fi
