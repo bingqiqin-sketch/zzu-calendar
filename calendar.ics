@@ -4,8 +4,25 @@ PRODID:-//ZZU通知截止提醒//CN//ZH
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
+UID:zzu-59cb859c1a5b27dd@zzu.edu.cn
+DTSTAMP:20261024T043731Z
+DTSTART;VALUE=DATE:20261024
+SUMMARY:关于组织收看学习“拥抱环境变化 奔赴崭新山海”主题
+ 心理健康公开课的通知
+DESCRIPTION:关于组织收看学习“拥抱环境变化 奔赴崭新山海”主题
+ 心理健康公开课的通知\n截止时间：2026-10-24\n来源：收
+ 看总结和学习心得于10月24日10点前报送至zzuxljk@163.com\n
+ 原文：https://www5.zzu.edu.cn/student/info/1003/13143.htm
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:截止提醒：关于组织收看学习“拥抱环境变化 奔赴崭新
+ 山海”主题心理健康公开课的通知
+TRIGGER:-PT24H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:zzu-995c25b2d2b3adf9@zzu.edu.cn
-DTSTAMP:20261023T045002Z
+DTSTAMP:20261024T043731Z
 DTSTART;VALUE=DATE:20261028
 SUMMARY:关于举办郑州大学第一届“四创”大赛复赛的通知
 DESCRIPTION:关于举办郑州大学第一届“四创”大赛复赛的通知\n截止
@@ -20,27 +37,8 @@ TRIGGER:-PT24H
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:zzu-0375ef6cbbe7cd23@zzu.edu.cn
-DTSTAMP:20261023T045002Z
-DTSTART:20261023T120000
-DTEND:20261023T123000
-SUMMARY:关于开展2026年校级辅导员工作室立项申报工作的通知
-DESCRIPTION:关于开展2026年校级辅导员工作室立项申报工作的通知\n
- 截止时间：2026-10-23T12:00:00\n来源：纸质材料 签字盖章后
-  于 2026年10月23日（ 周五 ） 12：00 前报送至学生处 215办
- 公室，电子版发送至szk@zzu.edu.cn，邮件主题命名为“姓
- 名＋辅导员工作室”\n原文：https://www5.zzu.edu.cn/student/inf
- o/1003/13129.htm
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:截止提醒：关于开展2026年校级辅导员工作室立项申报工
- 作的通知
-TRIGGER:-PT24H
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:zzu-38523d5884e62412@zzu.edu.cn
-DTSTAMP:20261023T045002Z
+DTSTAMP:20261024T043731Z
 DTSTART;VALUE=DATE:20261025
 SUMMARY:关于开展2026年学校辅导员信息维护的通知
 DESCRIPTION:关于开展2026年学校辅导员信息维护的通知\n截止时间：20
@@ -49,24 +47,6 @@ DESCRIPTION:关于开展2026年学校辅导员信息维护的通知\n截止时�
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:截止提醒：关于开展2026年学校辅导员信息维护的通知
-TRIGGER:-PT24H
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:zzu-1a387a850320469c@zzu.edu.cn
-DTSTAMP:20261023T045002Z
-DTSTART:20261031T235900
-DTEND:20261101T002900
-SUMMARY:关于第十七届全国大学生市场调查与分析大赛参赛报名
- 的通知
-DESCRIPTION:关于第十七届全国大学生市场调查与分析大赛参赛报名
- 的通知\n截止时间：2026-10-31T23:59:00\n来源：1.报名截止日
- 期：2026年10月31日24：00\n原文：https://www5.zzu.edu.cn/student/
- info/1003/13109.htm
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:截止提醒：关于第十七届全国大学生市场调查与分析大
- 赛参赛报名的通知
 TRIGGER:-PT24H
 END:VALARM
 END:VEVENT
