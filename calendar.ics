@@ -4,8 +4,28 @@ PRODID:-//ZZU通知截止提醒//CN//ZH
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
+UID:zzu-cbf0c9cbce87359d@zzu.edu.cn
+DTSTAMP:20261030T055017Z
+DTSTART;VALUE=DATE:20261126
+SUMMARY:关于开展第二届本科生宿舍文明提升月系列活动的通知
+DESCRIPTION:关于开展第二届本科生宿舍文明提升月系列活动的通知\n
+ 截止时间：2026-11-26\n来源：于11月26日前将活动总结经副
+ 书记签字盖章后的扫描件与优秀宿舍汇总表 （附件 1）
+ 、平面创意宿舍推荐表（附件2）、海报扫描件（PDF)、
+ 公约示范宿舍推荐表（附件3）、《宿舍文明公约》张贴
+ 实景照片（PDF），以学院为单位统一发 送至 liuyi917@zzu.e
+ du.cn（命名格式为：学院名称+“宿舍推优”）\n原文：ht
+ tps://www5.zzu.edu.cn/student/info/1003/13158.htm
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:截止提醒：关于开展第二届本科生宿舍文明提升月系列
+ 活动的通知
+TRIGGER:-PT24H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:zzu-464178a5311063c8@zzu.edu.cn
-DTSTAMP:20261029T054924Z
+DTSTAMP:20261030T055017Z
 DTSTART;VALUE=DATE:20261130
 SUMMARY:关于申报2026年心理素质拓展活动的通知
 DESCRIPTION:关于申报2026年心理素质拓展活动的通知\n截止时间：2026-
