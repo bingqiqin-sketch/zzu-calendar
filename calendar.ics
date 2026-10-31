@@ -4,8 +4,28 @@ PRODID:-//ZZU通知截止提醒//CN//ZH
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
+UID:zzu-bb4e5b9fab99a8ab@zzu.edu.cn
+DTSTAMP:20261031T054213Z
+DTSTART;VALUE=DATE:20261201
+SUMMARY:郑州大学关于开展2026年学风建设月系列活动的通知
+DESCRIPTION:郑州大学关于开展2026年学风建设月系列活动的通知\n截
+ 止时间：2026-12-01\n来源：为做好相关活动成果择优展示
+ 工作，请各学院梳理学院关于学风建设的特色经验做法
+ 和开展的系列活动总结两部分内容（限250-300字，凝练分
+ 要点，word版本），另提交活动照片（照片以内容标题命
+ 名，照片单独放在一个文件夹里）、活动简介，请于12
+ 月1日前将电子版材料（word版）发送至学生处邮箱：xsgl@
+ zzu.edu.cn\n原文：https://www5.zzu.edu.cn/student/info/1003/13175.htm
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:截止提醒：郑州大学关于开展2026年学风建设月系列活动
+ 的通知
+TRIGGER:-PT24H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:zzu-cbf0c9cbce87359d@zzu.edu.cn
-DTSTAMP:20261030T055017Z
+DTSTAMP:20261031T054213Z
 DTSTART;VALUE=DATE:20261126
 SUMMARY:关于开展第二届本科生宿舍文明提升月系列活动的通知
 DESCRIPTION:关于开展第二届本科生宿舍文明提升月系列活动的通知\n
@@ -20,23 +40,6 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:截止提醒：关于开展第二届本科生宿舍文明提升月系列
  活动的通知
-TRIGGER:-PT24H
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:zzu-464178a5311063c8@zzu.edu.cn
-DTSTAMP:20261030T055017Z
-DTSTART;VALUE=DATE:20261130
-SUMMARY:关于申报2026年心理素质拓展活动的通知
-DESCRIPTION:关于申报2026年心理素质拓展活动的通知\n截止时间：2026-
- 11-30\n来源：（三）活动结束后，请各学院及时提交活动
- 相关材料，包括 活动通知、 签到表、照片及活动总结 
- 等， 并以 “学院+2026年素质拓展活动总结”命名，于 11
- 月30日前 打包发送 至邮箱 zzuxljk@163.com\n原文：https://www5
- .zzu.edu.cn/student/info/1003/13040.htm
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:截止提醒：关于申报2026年心理素质拓展活动的通知
 TRIGGER:-PT24H
 END:VALARM
 END:VEVENT
